@@ -53,12 +53,13 @@ void PrintArray2D(int[,] array)
 double[] AverageString(int[,] array)
 {
    double[] array1D = new double[array.GetLength(0)];
+   double sum = 0;
    for (int i = 0; i < array.GetLength(0); i++)
    {
-      double sum = 0;
+      array1D[i] = Math.Round(sum / array.GetLength(1), 2);
       for (int j = 0; j < array.GetLength(1); j++)
       {
-         array1D[i] = Math.Round((sum += array[i, j]) / array.GetLength(1), 2);
+         sum += array[i, j];
       }
    }
    return array1D;
@@ -67,12 +68,13 @@ double[] AverageString(int[,] array)
 double[] AverageColumn(int[,] array)
 {
    double[] array1D = new double[array.GetLength(1)];
+   double sum = 0;
    for (int i = 0; i < array.GetLength(1); i++)
    {
-      double sum = 0;
+      array1D[i] = Math.Round((sum) / array.GetLength(0), 2);
       for (int j = 0; j < array.GetLength(0); j++)
       {
-         array1D[i] = Math.Round((sum += array[j, i]) / array.GetLength(0), 2);
+         sum += array[j, i];
       }
    }
    return array1D;
